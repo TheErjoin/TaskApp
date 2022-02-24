@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">TaskAppKotlin</string>
+    <string name="add_item">ADD ITEM</string>
+</resources>
