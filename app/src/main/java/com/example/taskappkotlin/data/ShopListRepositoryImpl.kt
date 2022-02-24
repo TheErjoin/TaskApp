@@ -8,11 +8,10 @@ import com.example.taskappkotlin.domain.ShopListRepository
 
 object ShopListRepositoryImpl : ShopListRepository {
 
-    //    private var autoIncrementId = 0
     private val mapper = ShopListMapper()
 
     override fun addShopItem(shopItem: ShopItem) {
-        App.appDatabase.shopListDao().addShopItem(mapper.mapEntityToDBModel(shopItem))
+        App.appDatabase.shopListDao().insertShopItem(mapper.mapEntityToDBModel(shopItem))
     }
 
     override fun deleteShopItem(shopItem: ShopItem) {
@@ -30,9 +29,6 @@ object ShopListRepositoryImpl : ShopListRepository {
     }
 
     override fun getShopItem(shopItemId: Int): ShopItem {
-//        return shopList.find {
-//            it.id == shopItemId
-//        } ?: throw RuntimeException("Element with id $shopItemId not found")
         val dbModel = App.appDatabase.shopListDao().getShopItem(shopItemId)
         return mapper.mapDbModelToEntity(dbModel)
     }

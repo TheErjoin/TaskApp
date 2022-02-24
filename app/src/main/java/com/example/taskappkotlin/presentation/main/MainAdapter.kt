@@ -13,11 +13,12 @@ class MainAdapter : ListAdapter<ShopItem, MainAdapter.ShopItemViewHolder>(ShopIt
 
     var onShopItemLongClickListener: ((ShopItem) -> Unit)? = null
     private var newList = mutableListOf<ShopItem>()
+    var onShopItemClickListener: ((ShopItem) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShopItemViewHolder {
         val layout = when (viewType) {
-            VIEW_TYPE_ENABLE -> R.layout.item_shop_enabled
-            VIEW_TYPE_DISABLE -> R.layout.item_shop_disabled
+            VIEW_TYPE_ENABLE -> R.layout.item_shop_disabled
+            VIEW_TYPE_DISABLE -> R.layout.item_shop_enabled
             else -> throw RuntimeException("Unknown view type: $viewType")
         }
         return ShopItemViewHolder(
@@ -37,9 +38,12 @@ class MainAdapter : ListAdapter<ShopItem, MainAdapter.ShopItemViewHolder>(ShopIt
             changeShopItem(holder.absoluteAdapterPosition)
             true
         }
+        holder.itemView.setOnClickListener {
+            onShopItemClickListener?.invoke(shopItem)
+        }
     }
 
-    fun changeShopItem(position: Int) {
+    private fun changeShopItem(position: Int) {
         newList = ArrayList(currentList)
         newList[position] = newList[position].copy(enabled = !getItem(position).enabled)
         submitList(newList)

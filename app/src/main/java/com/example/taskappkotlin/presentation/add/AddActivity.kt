@@ -25,13 +25,14 @@ class AddActivity : AppCompatActivity() {
 
     private fun initListeners() {
         if (binding.etCount.text.isNotEmpty() &&
-            binding.etName.text.isNotEmpty()
+            binding.etName.text.isNotEmpty() &&
+            binding.etId.text.isNotEmpty()
         ) {
             viewModel.addShopItem(
                 ShopItem(
                     binding.etName.text.toString(),
-                    Integer.parseInt(binding.etCount.text.toString()),
-                    false, 1
+                    binding.etCount.text.toString().toInt(), false,
+                    binding.etId.text.toString().toInt()
                 )
             )
             finish()
