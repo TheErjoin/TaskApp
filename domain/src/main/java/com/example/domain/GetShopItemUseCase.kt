@@ -1,4 +1,4 @@
-package com.example.taskappkotlin.domain
+package com.example.domain
 
 class GetShopItemUseCase(private val repository: ShopListRepository) {
 

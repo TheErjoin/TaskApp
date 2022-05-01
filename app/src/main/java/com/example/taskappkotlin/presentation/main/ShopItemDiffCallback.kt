@@ -1,7 +1,7 @@
 package com.example.taskappkotlin.presentation.main
 
 import androidx.recyclerview.widget.DiffUtil
-import com.example.taskappkotlin.domain.ShopItem
+import com.example.domain.ShopItem
 
 class ShopItemDiffCallback : DiffUtil.ItemCallback<ShopItem>() {
 

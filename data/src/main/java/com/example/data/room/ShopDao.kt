@@ -1,13 +1,13 @@
-package com.example.taskappkotlin.data.room
+package com.example.data.room
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ShopDao {
 
     @Query("SELECT * FROM shop_items ORDER BY name ASC")
-    fun getShopList(): LiveData<List<ShopItemDBModel>>
+    fun getShopList(): Flow<List<ShopItemDBModel>>
 
     @Query("SELECT * FROM shop_items WHERE id =:shopItemId LIMIT 1")
     fun getShopItem(shopItemId: Int): ShopItemDBModel

@@ -1,4 +1,4 @@
-package com.example.taskappkotlin.domain
+package com.example.domain
 
 data class ShopItem(
     val name: String,

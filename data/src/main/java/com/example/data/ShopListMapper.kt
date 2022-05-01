@@ -1,7 +1,7 @@
-package com.example.taskappkotlin.data
+package com.example.data
 
-import com.example.taskappkotlin.data.room.ShopItemDBModel
-import com.example.taskappkotlin.domain.ShopItem
+import com.example.data.room.ShopItemDBModel
+import com.example.domain.ShopItem
 
 class ShopListMapper {
 

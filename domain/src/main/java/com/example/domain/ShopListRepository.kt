@@ -1,6 +1,7 @@
-package com.example.taskappkotlin.domain
+package com.example.domain
 
-import androidx.lifecycle.LiveData
+import kotlinx.coroutines.flow.Flow
+
 
 interface ShopListRepository {
 
@@ -8,7 +9,7 @@ interface ShopListRepository {
 
     fun deleteShopItem(shopItem: ShopItem)
 
-    fun getShopList(): LiveData<List<ShopItem>>
+    fun getShopList(): Flow<List<ShopItem>>
 
     fun editShopList(shopItem: ShopItem)
 

@@ -6,10 +6,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.domain.ShopItem
 import com.example.taskappkotlin.R
-import com.example.taskappkotlin.domain.ShopItem
 
-class MainAdapter : ListAdapter<ShopItem, MainAdapter.ShopItemViewHolder>(ShopItemDiffCallback()) {
+class MainAdapter :
+    ListAdapter<ShopItem, MainAdapter.ShopItemViewHolder>(ShopItemDiffCallback()) {
 
     var onShopItemLongClickListener: ((ShopItem) -> Unit)? = null
     private var newList = mutableListOf<ShopItem>()

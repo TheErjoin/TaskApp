@@ -1,4 +1,4 @@
-package com.example.taskappkotlin.data.room
+package com.example.data.room
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

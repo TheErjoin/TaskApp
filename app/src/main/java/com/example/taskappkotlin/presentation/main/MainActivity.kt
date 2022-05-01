@@ -3,33 +3,50 @@ package com.example.taskappkotlin.presentation.main
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.example.taskappkotlin.App
 import com.example.taskappkotlin.R
 import com.example.taskappkotlin.databinding.ActivityMainBinding
 import com.example.taskappkotlin.presentation.add.AddActivity
+import com.example.taskappkotlin.presentation.main.viewModel.MainViewModel
+import com.example.taskappkotlin.presentation.main.viewModel.MainViewModelFactory
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
     private val binding: ActivityMainBinding by viewBinding()
-    private val viewModel: MainViewModel by viewModels()
+
+    //    private val viewModel: MainViewModel by viewModels()
     private lateinit var adapterMain: MainAdapter
+
+    @Inject
+    lateinit var vmFactory: MainViewModelFactory
+    private lateinit var viewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initRecycler()
-        initListeners()
+        (applicationContext as App).shopComponent.inject(this)
+        viewModel = ViewModelProvider(this, vmFactory)
+            .get(MainViewModel::class.java)
         initObservers()
+        initListeners()
     }
 
     private fun initObservers() {
-        viewModel.shopList.observe(this, {
-            adapterMain.submitList(it)
-        })
+        lifecycleScope.launch {
+            viewModel.getShopList.collectLatest {
+                adapterMain.submitList(it)
+            }
+        }
     }
 
     private fun initRecycler() {
@@ -55,7 +72,7 @@ class MainActivity : AppCompatActivity() {
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val item = adapterMain.currentList[viewHolder.absoluteAdapterPosition]
-                viewModel.deleteShop(item)
+                viewModel.deleteShopItem(item)
             }
         }
         val itemTouchHelper = ItemTouchHelper(callback)
