@@ -2,8 +2,8 @@ package com.example.taskappkotlin.di
 
 import android.content.Context
 import com.example.domain.ShopListRepository
-import com.example.taskappkotlin.presentation.add.viewModel.AddViewModelFactory
-import com.example.taskappkotlin.presentation.main.viewModel.MainViewModelFactory
+import com.example.taskappkotlin.presentation.fragment.add.viewModel.AddViewModelFactory
+import com.example.taskappkotlin.presentation.fragment.main.viewModel.MainViewModelFactory
 import dagger.Module
 import dagger.Provides
 

@@ -1,4 +1,4 @@
-package com.example.taskappkotlin.presentation.main
+package com.example.taskappkotlin.presentation.fragment.main
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,9 +12,9 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.taskappkotlin.App
 import com.example.taskappkotlin.R
 import com.example.taskappkotlin.databinding.ActivityMainBinding
-import com.example.taskappkotlin.presentation.add.AddActivity
-import com.example.taskappkotlin.presentation.main.viewModel.MainViewModel
-import com.example.taskappkotlin.presentation.main.viewModel.MainViewModelFactory
+import com.example.taskappkotlin.presentation.fragment.add.AddActivity
+import com.example.taskappkotlin.presentation.fragment.main.viewModel.MainViewModel
+import com.example.taskappkotlin.presentation.fragment.main.viewModel.MainViewModelFactory
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject

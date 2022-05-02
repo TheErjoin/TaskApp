@@ -1,4 +1,4 @@
-package com.example.taskappkotlin.presentation.add
+package com.example.taskappkotlin.presentation.fragment.add
 
 import android.os.Bundle
 import android.widget.Toast
@@ -9,8 +9,8 @@ import com.example.domain.ShopItem
 import com.example.taskappkotlin.App
 import com.example.taskappkotlin.R
 import com.example.taskappkotlin.databinding.ActivityAddBinding
-import com.example.taskappkotlin.presentation.add.viewModel.AddViewModel
-import com.example.taskappkotlin.presentation.add.viewModel.AddViewModelFactory
+import com.example.taskappkotlin.presentation.fragment.add.viewModel.AddViewModel
+import com.example.taskappkotlin.presentation.fragment.add.viewModel.AddViewModelFactory
 import javax.inject.Inject
 
 class AddActivity : AppCompatActivity() {

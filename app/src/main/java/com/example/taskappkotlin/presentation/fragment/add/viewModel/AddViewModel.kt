@@ -1,4 +1,4 @@
-package com.example.taskappkotlin.presentation.add.viewModel
+package com.example.taskappkotlin.presentation.fragment.add.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

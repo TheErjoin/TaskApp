@@ -1,7 +1,7 @@
 package com.example.taskappkotlin.di
 
-import com.example.taskappkotlin.presentation.add.AddActivity
-import com.example.taskappkotlin.presentation.main.MainActivity
+import com.example.taskappkotlin.presentation.fragment.add.AddActivity
+import com.example.taskappkotlin.presentation.fragment.main.MainActivity
 import dagger.Component
 
 @Component(modules = [AppModule::class, DomainModule::class, DataModule::class])

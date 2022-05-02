@@ -1,4 +1,4 @@
-package com.example.taskappkotlin.presentation.main
+package com.example.taskappkotlin.presentation.fragment.main
 
 import androidx.recyclerview.widget.DiffUtil
 import com.example.domain.ShopItem

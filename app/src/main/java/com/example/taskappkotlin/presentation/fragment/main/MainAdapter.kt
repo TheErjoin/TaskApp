@@ -1,4 +1,4 @@
-package com.example.taskappkotlin.presentation.main
+package com.example.taskappkotlin.presentation.fragment.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
