@@ -12,6 +12,5 @@ interface ShopComponent {
 
     fun inject(fragment: MainFragment)
 
-    fun inject(fragment: AddFragment)
 
 }

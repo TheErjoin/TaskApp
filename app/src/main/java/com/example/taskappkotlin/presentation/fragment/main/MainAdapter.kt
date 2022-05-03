@@ -16,7 +16,7 @@ class MainAdapter :
     private var newList = mutableListOf<ShopItem>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return if (viewType == VIEW_TYPE_DISABLE) {
+        return if (viewType == VIEW_TYPE_ENABLE) {
             ShopItemDisableViewHolder(
                 ItemShopDisabledBinding.inflate(
                     LayoutInflater.from(parent.context),
@@ -42,7 +42,7 @@ class MainAdapter :
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if (holder.itemViewType == VIEW_TYPE_DISABLE) {
+        if (holder.itemViewType == VIEW_TYPE_ENABLE) {
             holder as ShopItemDisableViewHolder
             holder.onBind(getItem(position))
         } else {

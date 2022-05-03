@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -25,6 +26,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(
     private val adapter: MainAdapter by lazy {
         MainAdapter()
     }
+    private val args: MainFragmentArgs by navArgs()
     private val viewModel: MainViewModel by lazy {
         ViewModelProvider(requireActivity(), vmFactory)
             .get(MainViewModel::class.java)
@@ -73,6 +75,9 @@ class MainFragment : BaseFragment<FragmentMainBinding>(
     }
 
     override fun setupObservers() {
+        if (args.shopItem != null) {
+            viewModel.addShopItem(args.shopItem!!)
+        }
         lifecycleScope.launch {
             viewModel.getShopList.collectLatest {
                 adapter.submitList(it)

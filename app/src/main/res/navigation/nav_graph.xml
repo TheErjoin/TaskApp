@@ -9,10 +9,16 @@
         android:id="@+id/mainFragment"
         android:name="com.example.taskappkotlin.presentation.fragment.main.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" >
+        tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_mainFragment_to_addFragment"
             app:destination="@id/addFragment" />
+
+        <argument
+            android:name="shopItem"
+            android:defaultValue="@null"
+            app:argType="com.example.domain.ShopItem"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/addFragment"
