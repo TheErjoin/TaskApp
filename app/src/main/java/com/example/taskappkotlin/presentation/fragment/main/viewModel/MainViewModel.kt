@@ -2,15 +2,19 @@ package com.example.taskappkotlin.presentation.fragment.main.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.domain.DeleteShopItemUseCase
+import com.example.domain.GetShopListUseCase
 import com.example.domain.ShopItem
-import com.example.domain.ShopListRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class MainViewModel @Inject constructor(private val repository: ShopListRepository) : ViewModel() {
+class MainViewModel @Inject constructor(
+    val getShopListUseCase: GetShopListUseCase, val deleteShopItemUseCase: DeleteShopItemUseCase
+) :
+    ViewModel() {
 
     private val _getShopList = MutableStateFlow<List<ShopItem>>(mutableListOf())
     val getShopList = _getShopList.asStateFlow()
@@ -21,7 +25,7 @@ class MainViewModel @Inject constructor(private val repository: ShopListReposito
 
     fun getList() {
         viewModelScope.launch {
-            repository.getShopList().collect {
+            getShopListUseCase.getShopList().collect {
                 _getShopList.value = it
             }
         }
@@ -29,7 +33,7 @@ class MainViewModel @Inject constructor(private val repository: ShopListReposito
 
     fun deleteShopItem(shopItem: ShopItem) {
         viewModelScope.launch {
-            repository.deleteShopItem(shopItem)
+            deleteShopItemUseCase.deleteShopItem(shopItem)
         }
     }
 

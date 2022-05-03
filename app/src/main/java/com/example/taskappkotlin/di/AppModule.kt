@@ -1,9 +1,6 @@
 package com.example.taskappkotlin.di
 
 import android.content.Context
-import com.example.domain.ShopListRepository
-import com.example.taskappkotlin.presentation.fragment.add.viewModel.AddViewModelFactory
-import com.example.taskappkotlin.presentation.fragment.main.viewModel.MainViewModelFactory
 import dagger.Module
 import dagger.Provides
 
@@ -15,14 +12,18 @@ class AppModule(val context: Context) {
         return context
     }
 
-    @Provides
-    fun provideMainViewModelFactory(repository: ShopListRepository): MainViewModelFactory {
-        return MainViewModelFactory(repository = repository)
-    }
+//    @Provides
+//    fun provideMainViewModelFactory(
+//        getUseListUseCase: GetShopListUseCase,
+//        deleteShopItemUseCase: DeleteShopItemUseCase
+//    ): MainViewModelFactory {
+//        return MainViewModelFactory(getUseListUseCase, deleteShopItemUseCase)
+//    }
+//
+//    @Provides
+//    fun provideAddViewModelFactory(addShopItemUseCase: AddShopItemUseCase): AddViewModelFactory {
+//        return AddViewModelFactory(addShopItemUseCase = addShopItemUseCase)
+//    }
 
-    @Provides
-    fun provideAddViewModelFactory(repository: ShopListRepository): AddViewModelFactory {
-        return AddViewModelFactory(repository = repository)
-    }
 
 }

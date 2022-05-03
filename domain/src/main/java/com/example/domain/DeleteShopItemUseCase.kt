@@ -1,6 +1,8 @@
 package com.example.domain
 
-class DeleteShopItemUseCase(private val shopListRepository: ShopListRepository) {
+import javax.inject.Inject
+
+class DeleteShopItemUseCase @Inject constructor(val shopListRepository: ShopListRepository) {
 
     fun deleteShopItem(shopItem: ShopItem) {
         shopListRepository.deleteShopItem(shopItem)

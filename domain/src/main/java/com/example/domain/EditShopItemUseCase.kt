@@ -1,6 +1,8 @@
 package com.example.domain
 
-class EditShopItemUseCase(private val repository: ShopListRepository) {
+import javax.inject.Inject
+
+class EditShopItemUseCase @Inject constructor(private val repository: ShopListRepository) {
 
     fun editShopItem(shopItem: ShopItem) {
         repository.editShopList(shopItem)

@@ -2,10 +2,12 @@ package com.example.taskappkotlin.presentation.fragment.add.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.domain.ShopListRepository
+import com.example.domain.AddShopItemUseCase
+import javax.inject.Inject
 
-class AddViewModelFactory(val repository: ShopListRepository) : ViewModelProvider.Factory {
+class AddViewModelFactory @Inject constructor(val addShopItemUseCase: AddShopItemUseCase) :
+    ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return AddViewModel(repository = repository) as T
+        return AddViewModel(addShopItemUseCase = addShopItemUseCase) as T
     }
 }
