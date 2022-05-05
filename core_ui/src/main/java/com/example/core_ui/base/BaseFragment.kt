@@ -28,9 +28,9 @@ abstract class BaseFragment<Binding : ViewBinding>(private val inflate: Inflate<
         super.onViewCreated(view, savedInstanceState)
 
         initialize()
-        setupListeners()
         setupRequests()
         setupObservers()
+        setupListeners()
     }
 
     protected open fun setupObservers(){
@@ -41,12 +41,21 @@ abstract class BaseFragment<Binding : ViewBinding>(private val inflate: Inflate<
 
     }
 
-    protected open fun setupListeners(){
+    protected open fun setupListeners() {
 
     }
 
-    protected open fun initialize(){
+    protected open fun initialize() {
 
     }
+
+//    protected fun <T> StateFlow<T>.subscribe(
+//        state: Lifecycle.State = Lifecycle.State.STARTED,
+//        action: (T) -> Unit
+//    ) {
+//        viewLifecycleOwner.lifecycleScope.launch {
+//            viewLifecycleOwner.rep
+//        }
+//    }
 
 }

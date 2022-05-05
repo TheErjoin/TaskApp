@@ -13,7 +13,7 @@ class MainViewModelFactory @Inject constructor(
     val addShopItemUseCase: AddShopItemUseCase
 ) : ViewModelProvider.Factory {
 
-    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return MainViewModel(
             getShopListUseCase = getShopListUseCase,
             deleteShopItemUseCase = deleteShopItemUseCase,

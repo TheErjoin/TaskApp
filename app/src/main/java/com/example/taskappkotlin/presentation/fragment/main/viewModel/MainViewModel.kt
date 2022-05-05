@@ -8,7 +8,7 @@ import com.example.domain.GetShopListUseCase
 import com.example.domain.ShopItem
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -28,22 +28,24 @@ class MainViewModel @Inject constructor(
 
     fun getList() {
         viewModelScope.launch {
-            getShopListUseCase.getShopList().collect {
-                _getShopList.value = it
-            }
+            getShopListUseCase.getShopList()
+                .collectLatest {
+                    _getShopList.value = it
+                }
         }
     }
 
     fun deleteShopItem(shopItem: ShopItem) {
         viewModelScope.launch {
             deleteShopItemUseCase.deleteShopItem(shopItem)
+            getList()
         }
     }
 
     fun addShopItem(shopItem: ShopItem) {
         viewModelScope.launch {
             addShopItemUseCase.addShopItem(shopItem)
+            getList()
         }
     }
-
 }

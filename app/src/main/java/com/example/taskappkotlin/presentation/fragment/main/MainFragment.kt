@@ -8,6 +8,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager.VERTICAL
 import androidx.recyclerview.widget.RecyclerView
 import com.example.core_ui.base.BaseFragment
 import com.example.taskappkotlin.R
@@ -28,8 +29,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(
     }
     private val args: MainFragmentArgs by navArgs()
     private val viewModel: MainViewModel by lazy {
-        ViewModelProvider(requireActivity(), vmFactory)
-            .get(MainViewModel::class.java)
+        ViewModelProvider(requireActivity(), vmFactory)[MainViewModel::class.java]
     }
 
     @Inject
@@ -40,14 +40,14 @@ class MainFragment : BaseFragment<FragmentMainBinding>(
         super.onAttach(context)
     }
 
-    override fun initialize() {
+    override fun setupRequests() {
         initRecycler()
     }
 
     private fun initRecycler() {
         binding.recycler.apply {
-            layoutManager = LinearLayoutManager(context)
             adapter = this@MainFragment.adapter
+            layoutManager = LinearLayoutManager(context, VERTICAL, false)
         }
         setupSwipeListeners(binding.recycler)
     }
