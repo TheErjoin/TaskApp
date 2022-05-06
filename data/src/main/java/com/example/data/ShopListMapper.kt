@@ -1,7 +1,7 @@
 package com.example.data
 
 import com.example.data.room.ShopItemDBModel
-import com.example.domain.ShopItem
+import com.example.domain.entity.ShopItem
 
 class ShopListMapper {
 

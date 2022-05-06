@@ -2,9 +2,9 @@ package com.example.taskappkotlin.presentation.fragment.main.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.domain.AddShopItemUseCase
-import com.example.domain.DeleteShopItemUseCase
-import com.example.domain.GetShopListUseCase
+import com.example.domain.usecase.AddShopItemUseCase
+import com.example.domain.usecase.DeleteShopItemUseCase
+import com.example.domain.usecase.GetShopListUseCase
 import javax.inject.Inject
 
 class MainViewModelFactory @Inject constructor(

@@ -3,7 +3,7 @@ package com.example.taskappkotlin.presentation.fragment.add
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.core_ui.base.BaseFragment
-import com.example.domain.ShopItem
+import com.example.domain.entity.ShopItem
 import com.example.taskappkotlin.databinding.FragmentAddBinding
 
 class AddFragment : BaseFragment<FragmentAddBinding>(

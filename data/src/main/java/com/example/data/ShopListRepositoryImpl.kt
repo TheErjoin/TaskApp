@@ -1,8 +1,8 @@
 package com.example.data
 
 import com.example.data.room.ShopDao
-import com.example.domain.ShopItem
-import com.example.domain.ShopListRepository
+import com.example.domain.entity.ShopItem
+import com.example.domain.repository.ShopListRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 

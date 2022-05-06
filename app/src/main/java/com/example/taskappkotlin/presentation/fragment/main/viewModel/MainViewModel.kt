@@ -2,10 +2,10 @@ package com.example.taskappkotlin.presentation.fragment.main.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.domain.AddShopItemUseCase
-import com.example.domain.DeleteShopItemUseCase
-import com.example.domain.GetShopListUseCase
-import com.example.domain.ShopItem
+import com.example.domain.usecase.AddShopItemUseCase
+import com.example.domain.usecase.DeleteShopItemUseCase
+import com.example.domain.usecase.GetShopListUseCase
+import com.example.domain.entity.ShopItem
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest

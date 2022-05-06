@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.domain.ShopItem
+import com.example.domain.entity.ShopItem
 import com.example.taskappkotlin.databinding.ItemShopEnabledBinding
 
 class MainAdapter :

@@ -5,7 +5,7 @@ import androidx.room.Room
 import com.example.data.ShopListRepositoryImpl
 import com.example.data.room.AppDatabase
 import com.example.data.room.ShopDao
-import com.example.domain.ShopListRepository
+import com.example.domain.repository.ShopListRepository
 import dagger.Module
 import dagger.Provides
 
