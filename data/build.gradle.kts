@@ -1,32 +1,38 @@
 plugins {
-    id 'com.android.library'
-    id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
+    id("com.android.library")
+    id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
 }
 
 android {
-    compileSdk 32
+    compileSdk = 32
 
     defaultConfig {
-        minSdk 21
-        targetSdk 32
+        minSdk = 21
+        targetSdk = 32
 
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments += [
-                        "room.schemaLocation"  : "$projectDir/schemas".toString(),
-                        "room.incremental"     : "true",
-                        "room.expandProjection": "true"]
+        defaultConfig {
+            javaCompileOptions {
+                annotationProcessorOptions {
+                    arguments += mapOf(
+                            "room.schemaLocation" to "$projectDir/schemas",
+                            "room.incremental" to "true",
+                            "room.expandProjection" to "true"
+                    )
+                }
             }
+
+            testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+            consumerProguardFiles("consumer-rules.pro")
         }
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles "consumer-rules.pro"
     }
-
     buildTypes {
-        release {
-            minifyEnabled false
+        getByName("debug") {
+            isMinifyEnabled = false
+        }
+        getByName("release") {
+            isMinifyEnabled = false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
