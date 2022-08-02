@@ -27,6 +27,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(
     private val adapter: MainAdapter by lazy {
         MainAdapter()
     }
+
     private val args: MainFragmentArgs by navArgs()
     private val viewModel: MainViewModel by lazy {
         ViewModelProvider(requireActivity(), vmFactory)[MainViewModel::class.java]

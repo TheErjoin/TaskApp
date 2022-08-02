@@ -6,7 +6,7 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "TaskAppKotlin"
-include ':app'
-include ':data'
-include ':domain'
-include ':core_ui'
+include(":app")
+include(":data")
+include(":domain")
+include(":core_ui")
